@@ -10,6 +10,7 @@ import java.util.Properties;
 
 /**
  * Created by cuizhixiang on 2017/5/26.
+ * JavaMail发送
  **/
 @Component
 public class MailManager {

@@ -11,6 +11,7 @@ import java.util.Properties;
 
 /**
  * Created by cuizhixiang on 2017/5/31.
+ * 资源文件方式
  **/
 @Component
 public class MailUtil {
@@ -22,6 +23,11 @@ public class MailUtil {
     private static final String timeout = MailConfig.timeout;
     private static final String personal = MailConfig.personal;
     private static JavaMailSenderImpl mailSender = createMailSender();
+    /**
+     * 邮件发送器
+     *
+     * @return 配置好的工具
+     */
     private static JavaMailSenderImpl createMailSender() {
         JavaMailSenderImpl sender = new JavaMailSenderImpl();
         sender.setHost(HOST);
@@ -36,6 +42,15 @@ public class MailUtil {
         return sender;
     }
 
+    /**
+     * 发送邮件
+     *
+     * @param to 接受人
+     * @param subject 主题
+     * @param html 发送内容
+     * @throws MessagingException 异常
+     * @throws UnsupportedEncodingException 异常
+     */
     public static void sendMail(String to, String subject, String html) throws MessagingException,UnsupportedEncodingException {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         // 设置utf-8或GBK编码，否则邮件会有乱码

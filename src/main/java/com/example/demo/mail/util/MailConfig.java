@@ -8,6 +8,7 @@ import java.util.Properties;
 
 /**
  * Created by cuizhixiang on 2017/5/31.
+ * 过去资源文件数据
  **/
 @Component
 public class MailConfig {
@@ -23,6 +24,10 @@ public class MailConfig {
     static{
         init();
     }
+
+    /**
+     * 初始化
+     */
     private static void init() {
         properties = new Properties();
         try{
