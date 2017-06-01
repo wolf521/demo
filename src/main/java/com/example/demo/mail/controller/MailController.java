@@ -28,11 +28,9 @@ public class MailController {
 
     /**
      * 发送邮件
-     *
-     * @return
      */
     @RequestMapping("/email")
-    public String sendMail(){
+    public void sendMail(){
         String emailMsg = "测试发送邮件";
         try{
             mailManager.sendMail("2890657914@qq.com", emailMsg);
@@ -45,6 +43,5 @@ public class MailController {
         } catch(UnsupportedEncodingException e){
             e.printStackTrace();
         }
-        return "helloWorld";
     }
 }

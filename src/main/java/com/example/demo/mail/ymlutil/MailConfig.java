@@ -23,6 +23,10 @@ public class MailConfig {
     static{
         init();
     }
+
+    /**
+     * 初始化
+     */
     private static void init() {
 //        File dumpFile = new File("mailConfig.yml");
 //        Map father = Yaml. loadType(dumpFile, HashMap.class);
