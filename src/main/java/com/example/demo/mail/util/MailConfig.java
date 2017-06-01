@@ -34,6 +34,7 @@ public class MailConfig {
             InputStream inputStream = MailConfig.class.getClassLoader().getResourceAsStream(PROPERTIES_DEFAULT);
             properties.load(inputStream);
             inputStream.close();
+            //properties.setProperty("mailFrom","cuizhixiang@feitu.biz");
             host = properties.getProperty("mailHost");
             port = Integer.parseInt(properties.getProperty("mailPort"));
             userName = properties.getProperty("mailUsername");

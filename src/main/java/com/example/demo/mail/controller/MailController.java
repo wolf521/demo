@@ -26,6 +26,11 @@ public class MailController {
     @Autowired
     private MailUtil mailUtil;
 
+    /**
+     * 发送邮件
+     *
+     * @return
+     */
     @RequestMapping("/email")
     public String sendMail(){
         String emailMsg = "测试发送邮件";
