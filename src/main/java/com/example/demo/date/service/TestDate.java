@@ -14,11 +14,11 @@ import java.util.TimeZone;
 public class TestDate {
     public static void main(String agrs[]){
         try{
-           // new TestDate().test4();
+           //new TestDate().test4();
         }catch (Exception e){
             e.printStackTrace();
         }
-        new TestDate().test5();
+        new TestDate().test2();
     }
     public void test()throws InterruptedException{
         //创建一个当前系统时间对象
@@ -50,43 +50,43 @@ public class TestDate {
 //        System.out.println("roll不会进位");
 //        System.out.println("==================================");
 
-//        //获得年月日时分秒毫秒
-//        Calendar cal = Calendar.getInstance();
-//        System.out.println("年："+cal.get(Calendar.YEAR));
-//        System.out.println("月："+cal.get(Calendar.MONTH));
-//        System.out.println("日："+cal.get(Calendar.DATE));
-//        System.out.println("时："+cal.get(Calendar.HOUR));
-//        System.out.println("分："+cal.get(Calendar.MINUTE ));
-//        System.out.println("秒："+cal.get(Calendar.SECOND));
-//        System.out.println("毫秒："+cal.get(Calendar.MILLISECOND));
-//        System.out.println("==================================");
-//        System.out.println(cal.getActualMaximum(Calendar.MONTH));
-//        System.out.println(cal.getActualMinimum(Calendar.MONTH));
-//        System.out.println("今年到此时的星期数："+cal.get(Calendar.WEEK_OF_YEAR));
-//        System.out.println("今年到此时的天数："+cal.get(Calendar.DAY_OF_YEAR));
-//        System.out.println("今月到此时的星期数："+cal.get(Calendar.WEEK_OF_MONTH));
-//        System.out.println("今月到此时的天数："+cal.get(Calendar.DAY_OF_MONTH));
-//        System.out.println("今月到此时的天数："+cal.get(Calendar.DAY_OF_MONTH));
-//        System.out.println("这个星期到此时的天数："+cal.get(Calendar.DAY_OF_WEEK));
-//        System.out.println("这个月有多少天："+cal.getActualMaximum(Calendar.DATE));
-//        System.out.println("到此时的小时："+cal.get(Calendar.HOUR_OF_DAY));
-//        System.out.println("指示当前月中的第几个星期："+cal.get(Calendar.DAY_OF_WEEK_IN_MONTH));
-//        System.out.println("距 GMT 的大致偏移量：毫秒值"+cal.get(Calendar.ZONE_OFFSET));
+        //获得年月日时分秒毫秒
+        Calendar cal = Calendar.getInstance();
+        System.out.println("年："+cal.get(Calendar.YEAR));
+        System.out.println("月："+cal.get(Calendar.MONTH));
+        System.out.println("日："+cal.get(Calendar.DATE));
+        System.out.println("时："+cal.get(Calendar.HOUR));
+        System.out.println("分："+cal.get(Calendar.MINUTE ));
+        System.out.println("秒："+cal.get(Calendar.SECOND));
+        System.out.println("毫秒："+cal.get(Calendar.MILLISECOND));
+        System.out.println("==================================");
+        System.out.println(cal.getActualMaximum(Calendar.MONTH));
+        System.out.println(cal.getActualMinimum(Calendar.MONTH));
+        System.out.println("今年到此时的星期数："+cal.get(Calendar.WEEK_OF_YEAR));
+        System.out.println("今年到此时的天数："+cal.get(Calendar.DAY_OF_YEAR));
+        System.out.println("今月到此时的星期数："+cal.get(Calendar.WEEK_OF_MONTH));
+        System.out.println("今月到此时的天数："+cal.get(Calendar.DAY_OF_MONTH));
+        System.out.println("今月到此时的天数："+cal.get(Calendar.DAY_OF_MONTH));
+        System.out.println("这个星期到此时的天数："+cal.get(Calendar.DAY_OF_WEEK));
+        System.out.println("这个月有多少天："+cal.getActualMaximum(Calendar.DATE));
+        System.out.println("到此时的小时："+cal.get(Calendar.HOUR_OF_DAY));
+        System.out.println("指示当前月中的第几个星期："+cal.get(Calendar.DAY_OF_WEEK_IN_MONTH));
+        System.out.println("距 GMT 的大致偏移量：毫秒值"+cal.get(Calendar.ZONE_OFFSET));
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(calendar.YEAR,-1);
-        calendar.add(calendar.MONTH,1);
-        for(int i = 0;i<12;i++) {
-            int year = calendar.get(calendar.YEAR);
-            int month = calendar.get(calendar.MONTH)+1;
-            if (month == 0) {
-                month = 12;
-            }
-            System.out.println("年："+year);
-            System.out.println("月："+month);
-            System.out.println("日："+calendar.getActualMaximum(Calendar.DATE));
-            calendar.add(calendar.MONTH,1);
-        }
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.add(calendar.YEAR,-1);
+//        calendar.add(calendar.MONTH,1);
+//        for(int i = 0;i<12;i++) {
+//            int year = calendar.get(calendar.YEAR);
+//            int month = calendar.get(calendar.MONTH)+1;
+//            if (month == 0) {
+//                month = 12;
+//            }
+//            System.out.println("年："+year);
+//            System.out.println("月："+month);
+//            System.out.println("日："+calendar.getActualMaximum(Calendar.DATE));
+//            calendar.add(calendar.MONTH,1);
+//        }
     }
     public void test3(){
         Calendar cal = Calendar.getInstance();
