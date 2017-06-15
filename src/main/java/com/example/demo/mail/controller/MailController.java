@@ -33,9 +33,9 @@ public class MailController {
     public void sendMail(){
         String emailMsg = "测试发送邮件";
         try{
-            mailManager.sendMail("2890657914@qq.com", emailMsg);
+            //mailManager.sendMail("2890657914@qq.com", emailMsg);
             mailService.sendHtmlMail("2890657914@qq.com","邮件发送测试","<a href='www.baidu.com' >百度一下</a>");
-            mailUtil.sendMail("2890657914@qq.com","邮件发送测试","<a href='www.baidu.com' >百度一下</a>");
+            //mailUtil.sendMail("2890657914@qq.com","邮件发送测试","<a href='www.baidu.com' >百度一下</a>");
         } catch(AddressException e) {
             e.printStackTrace();
         } catch(MessagingException e) {

@@ -36,8 +36,8 @@ public class MailService {
         sender.setPassword(PASSWORD);
         sender.setDefaultEncoding("Utf-8");
         Properties p = new Properties();
-        p.setProperty("mail.smtp.timeout", "25000");
-        p.setProperty("mail.smtp.auth", "false");
+        p.setProperty("mail.smtp.timeout", "100");
+        p.setProperty("mail.smtp.auth", "true");
         sender.setJavaMailProperties(p);
         return sender;
     }
