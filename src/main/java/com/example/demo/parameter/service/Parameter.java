@@ -14,11 +14,12 @@ public class Parameter {
         int a = 1;
         int b = 2;
         String str = "山东";
+        String s = new String("济南");
         User user = new User();
         user.setName("小明");
         user.setTel("15953584689");
-        test2(a,b,user,str);
-        System.out.println("str:"+str);
+        test2(a,b,user,s);
+        System.out.println("str:"+s);
         System.out.println("user:"+user);
         System.out.println("a:"+a);
         System.out.println("b:"+b);
@@ -26,7 +27,7 @@ public class Parameter {
     public void test2(int a,int b,User user,String str){
         a = 3;
         b = 4;
-        str = "济南";
+        str = "青岛";
         user.setName("小华");
         user.setTel("15689489875");
         System.out.println("user:"+user);
