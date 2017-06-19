@@ -20,7 +20,7 @@ public class TestString {
         System.out.println(str.copyValueOf(chars,3,2));
         System.out.println(str.endsWith("str"));
         System.out.println(str.equals(str1));
-        str1 = "HELLO WORLD,";
+        str1 = "HELLO WORLD,"+"vv";
         System.out.println(str.equalsIgnoreCase(str1));
         byte aByte[] = str.getBytes();
         for(byte b : aByte){
