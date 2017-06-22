@@ -3,7 +3,7 @@ package com.example.model;
 /**
  * Created by cuizhixiang on 2017/6/22.
  **/
-public class User {
+public class User implements Comparable<User>{
 
     private String name;
 
@@ -70,5 +70,28 @@ public class User {
         result = 31 * result + (tel != null ? tel.hashCode() : 0);
         result = 31 * result + (age != null ? age.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        if(this.age > o.age){
+            return this.age - o.age;
+        }
+        if(this.age > o.age){
+            return this.age - o.age;
+        }
+        if(this.name.compareTo(o.getName()) > 0){
+            return 1;
+        }
+        if(this.name.compareTo(o.getName()) < 0){
+            return -1;
+        }
+        if(this.tel.compareTo(o.getTel()) > 0){
+            return 1;
+        }
+        if(this.tel.compareTo(o.getTel()) < 0){
+            return -1;
+        }
+        return 0;
     }
 }
