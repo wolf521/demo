@@ -9,7 +9,7 @@ import java.util.*;
  **/
 public class TestList {
     public static void main(String agrs[]){
-        TestList.test1();
+        TestList.test3();
     }
     public static void test(){
         List<User> list = new ArrayList<User>();
@@ -86,5 +86,32 @@ public class TestList {
         list.pop();
         System.out.println(list.peek());
         System.out.println(list.poll());
+    }
+
+    public static void test3(){
+
+        long time3 = new Date().getTime();
+        LinkedList linkedlist = new LinkedList();
+        for(int m=0;m<10000000;m++){
+            linkedlist.push(m);      //当在200000条数据之前插入20000条数据时，LinkedList只用了1125多ms.这就是LinkedList的优势所在
+            linkedlist.pop();
+            linkedlist.poll();
+        }
+        long time4 = new Date().getTime();
+        System.out.println("LinkedList:"+(time4 - time3));
+
+        long time5 = new Date().getTime();
+        ArrayList arrayList = new ArrayList();
+        for(int n=0;n<1000000;n++){
+            arrayList.add(n);  //当在200000条数据之前插入20000条数据时，ArrayList用了18375多ms.时间花费是arraylist的近20倍(视测试时机器性能)
+            arrayList.get(n);
+        }
+        Iterator iterator = arrayList.iterator();
+        while(iterator.hasNext()){
+            iterator.next();
+            iterator.remove();
+        }
+        long time6 = new Date().getTime();
+        System.out.println("ArrayList"+(time6 - time5));
     }
 }
