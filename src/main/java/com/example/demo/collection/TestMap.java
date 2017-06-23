@@ -54,7 +54,7 @@ public class TestMap {
             System.out.println(s);
             System.out.println(map.get(s));
         }
-        System.out.println("forEach便利keySet()的迭代器************************");
+        System.out.println("Iterator便利keySet()的迭代器************************");
         Iterator<String> iterator = map.keySet().iterator();
         while(iterator.hasNext()){
             String key = iterator.next();
@@ -70,7 +70,7 @@ public class TestMap {
             }
             System.out.println(entry.getValue());
         }
-        System.out.println("forEach便利map.entrySet()的迭代器************************");
+        System.out.println("Iterator便利map.entrySet()的迭代器************************");
         Iterator<Map.Entry<String,User>> iterator1 = map.entrySet().iterator();
         while(iterator1.hasNext()){
             Map.Entry<String,User> entry = iterator1.next();
