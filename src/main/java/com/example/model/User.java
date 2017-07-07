@@ -1,9 +1,11 @@
 package com.example.model;
 
+import java.io.Serializable;
+
 /**
  * Created by cuizhixiang on 2017/6/22.
  **/
-public class User implements Comparable<User>{
+public class User implements Comparable<User>, Serializable {
 
     private String name;
 
@@ -11,7 +13,8 @@ public class User implements Comparable<User>{
 
     private Integer age;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String name, String tel, Integer age) {
         this.name = name;
@@ -72,24 +75,25 @@ public class User implements Comparable<User>{
         return result;
     }
 
+
     @Override
     public int compareTo(User o) {
-        if(this.age > o.age){
+        if (this.age > o.age) {
             return this.age - o.age;
         }
-        if(this.age > o.age){
+        if (this.age > o.age) {
             return this.age - o.age;
         }
-        if(this.name.compareTo(o.getName()) > 0){
+        if (this.name.compareTo(o.getName()) > 0) {
             return 1;
         }
-        if(this.name.compareTo(o.getName()) < 0){
+        if (this.name.compareTo(o.getName()) < 0) {
             return -1;
         }
-        if(this.tel.compareTo(o.getTel()) > 0){
+        if (this.tel.compareTo(o.getTel()) > 0) {
             return 1;
         }
-        if(this.tel.compareTo(o.getTel()) < 0){
+        if (this.tel.compareTo(o.getTel()) < 0) {
             return -1;
         }
         return 0;
