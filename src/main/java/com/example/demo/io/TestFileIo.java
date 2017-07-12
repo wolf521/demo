@@ -13,7 +13,7 @@ public class TestFileIo {
     }
     public static void test()throws Exception{
         File file = new File("e:/data.txt");
-        FileReader fileReader = new FileReader(new File("e:/秘密--吸引力法则.f4v"));
+        FileReader fileReader = new FileReader(new File("e:/test.txt"));
         FileWriter fileWriter = new FileWriter(file);
         char[] c = new char[1024];
         int len;
