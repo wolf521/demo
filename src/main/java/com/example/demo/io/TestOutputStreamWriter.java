@@ -1,9 +1,6 @@
 package com.example.demo.io;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 /**
  * Created by cuizhixiang on 2017/7/4.

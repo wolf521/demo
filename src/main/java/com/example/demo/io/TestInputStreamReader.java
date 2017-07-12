@@ -13,7 +13,8 @@ public class TestInputStreamReader {
     }
     public static void test()throws Exception{
         File file = new File("e:/data.txt");
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file),"utf-8");
+        FileInputStream inputStream = new FileInputStream(file);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"utf-8");
         for(int i = 0;i < file.length();i++){
             System.out.print((char)inputStreamReader.read());
         }
