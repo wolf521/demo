@@ -9,7 +9,7 @@ public class TestBufferedIo {
     public static void main(String args[])throws Exception{
         //test();
         //test1();
-        test2();
+        test3();
     }
     public static void test()throws Exception{
         File file = new File("e:/1.mp4");
@@ -52,5 +52,16 @@ public class TestBufferedIo {
         }
         long l1 = System.currentTimeMillis();
         System.out.print(l1 - l);
+    }
+    public static void test3()throws Exception{
+        File file = new File("e:/data.txt");
+        Reader reader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String tem = null;
+        while((tem = bufferedReader.readLine()) != null){
+            System.out.println(tem);
+        }
+        reader.close();
+        bufferedReader.close();
     }
 }
