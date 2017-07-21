@@ -55,9 +55,14 @@ public class TestBufferedIo {
     }
     public static void test3()throws Exception{
         File file = new File("e:/data.txt");
+        Writer writer = new FileWriter(file);
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        String tem = "testData";
+        bufferedWriter.write(tem);
+        bufferedWriter.close();
         Reader reader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(reader);
-        String tem = null;
+        tem = null;
         while((tem = bufferedReader.readLine()) != null){
             System.out.println(tem);
         }
