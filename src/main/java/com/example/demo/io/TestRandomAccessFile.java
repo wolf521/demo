@@ -16,8 +16,8 @@ public class TestRandomAccessFile {
     public static void main(String args[]) throws Exception {
 //        test();
 //        test1();
-        cutFile("E:\\深度睡眠冥想音乐.mp4", "e:/分割", 300);
-        unite("E:\\合并.mp4", "e:/分割", "tem");
+        cutFile("E:/data.txt", "e:/分割", 10);
+        unite("E:\\合并.txt", "e:/分割", "tmp");
     }
 
     public static void test() throws Exception {
@@ -64,7 +64,7 @@ public class TestRandomAccessFile {
         RandomAccessFile randomAccessFile = new RandomAccessFile(fileName, "rw");
         int i = 0;
         for (; i < value; i++) {
-            File outFile = new File(folderName + File.separator + inFile.getName() + i + "tem");
+            File outFile = new File(folderName + File.separator + inFile.getName()+i+"tmp");
             RandomAccessFile randomAccessFile1 = new RandomAccessFile(outFile, "rw");
             for (int j = 0; j < size; j++) {
                 randomAccessFile1.write(randomAccessFile.read());
