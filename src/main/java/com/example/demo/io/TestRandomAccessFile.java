@@ -16,8 +16,8 @@ public class TestRandomAccessFile {
     public static void main(String args[]) throws Exception {
 //        test();
 //        test1();
-        cutFile("E:/data.txt", "e:/分割", 10);
-        unite("E:\\合并.txt", "e:/分割", "tmp");
+        cutFile("E:/阿里巴巴JAVA开发手册.pdf", "e:/分割", 2);
+        unite("E:\\合并.pdf", "e:/分割", "tmp");
     }
 
     public static void test() throws Exception {
@@ -56,14 +56,15 @@ public class TestRandomAccessFile {
      */
     public static void cutFile(String fileName, String folderName, int size) throws Exception {
         size *= 1024;
+        int max = 0;
         File inFile = new File(fileName);
         int fileLength = (int) inFile.length();
         int value = fileLength / size;
         File file = new File(folderName);
         if (!file.exists()) file.mkdirs();
         RandomAccessFile randomAccessFile = new RandomAccessFile(fileName, "rw");
-        int i = 0;
-        for (; i < value; i++) {
+        max += size;
+        for (int i = 0; i < value; i++) {
             File outFile = new File(folderName + File.separator + inFile.getName()+i+"tmp");
             RandomAccessFile randomAccessFile1 = new RandomAccessFile(outFile, "rw");
             for (int j = 0; j < size; j++) {
