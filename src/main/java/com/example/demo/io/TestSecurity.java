@@ -45,6 +45,7 @@ public class TestSecurity {
         Key key = new SecretKeySpec(b, "DES");
         return key;
     }
+
     /**
      * 字符串加密
      *
@@ -55,6 +56,7 @@ public class TestSecurity {
     public String encryptCipher(String s) throws Exception {
         return encrypt(encryptCipher(s.getBytes()));
     }
+
     /**
      * 加密
      *
@@ -87,6 +89,7 @@ public class TestSecurity {
     public byte[] encryptCipher(byte[] b) throws Exception {
         return encryptCipher.doFinal(b);
     }
+
     /**
      * 字符串解密
      *
@@ -97,6 +100,7 @@ public class TestSecurity {
     public String decryptCipher(String s) throws Exception {
         return new String(decryptCipher(decrypt(s)));
     }
+
     /**
      * 解密
      *
@@ -108,11 +112,12 @@ public class TestSecurity {
         int len = b.length;
         byte[] bytes = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {
-            String tmp = new String(b,i,2);
-            bytes[i/2] = (byte)Integer.parseInt(tmp,16);
+            String tmp = new String(b, i, 2);
+            bytes[i / 2] = (byte) Integer.parseInt(tmp, 16);
         }
         return bytes;
     }
+
     /**
      * 解密
      *
@@ -123,30 +128,33 @@ public class TestSecurity {
     public byte[] decryptCipher(byte[] b) throws Exception {
         return decryptCipher.doFinal(b);
     }
+
     /**
      * 文件加密
      *
-     * @param srcPath 加密前路径
+     * @param srcPath  加密前路径
      * @param destPath 加密后路径
      * @throws Exception
      */
-    public void encryptFile(String srcPath,String destPath)throws Exception{
+    public void encryptFile(String srcPath, String destPath) throws Exception {
         File file = new File(srcPath);
         byte[] bytes = getByteFile(file);
-        writeByteToFile(encryptCipher(bytes),destPath);
+        writeByteToFile(encryptCipher(bytes), destPath);
     }
+
     /**
      * 文件解密
      *
-     * @param srcPath 解密前路径
+     * @param srcPath  解密前路径
      * @param destPath 解密后路径
      * @throws Exception
      */
-    public void decryptFile(String srcPath,String destPath)throws Exception{
+    public void decryptFile(String srcPath, String destPath) throws Exception {
         File file = new File(srcPath);
         byte[] bytes = getByteFile(file);
-        writeByteToFile(decryptCipher(bytes),destPath);
+        writeByteToFile(decryptCipher(bytes), destPath);
     }
+
     /**
      * 读取文件
      *
@@ -154,21 +162,21 @@ public class TestSecurity {
      * @return
      * @throws IOException
      */
-    public static byte[] getByteFile(File file)throws IOException{
+    public static byte[] getByteFile(File file) throws IOException {
         // 获取输入流对象
         InputStream inputStream = new FileInputStream(file);
         long len = file.length();
-        if(len > Integer.MAX_VALUE){
+        if (len > Integer.MAX_VALUE) {
             return null;
         }
-        byte[] b = new byte[(int)len];
+        byte[] b = new byte[(int) len];
         int offSet = 0;
         int numRead = 0;
-        while(offSet < b.length && (numRead = inputStream.read(b,offSet,b.length - offSet)) >= 0){
+        while (offSet < b.length && (numRead = inputStream.read(b, offSet, b.length - offSet)) >= 0) {
             offSet += numRead;
         }
-        if(offSet < b.length){
-            throw new IOException("不能完整读取文件"+file.getName());
+        if (offSet < b.length) {
+            throw new IOException("不能完整读取文件" + file.getName());
         }
         inputStream.close();
         return b;
@@ -182,16 +190,16 @@ public class TestSecurity {
      * @return
      * @throws IOException
      */
-    public static File writeByteToFile(byte[] bytes,String filePath)throws IOException{
+    public static File writeByteToFile(byte[] bytes, String filePath) throws IOException {
         File file = null;
-        try{
+        try {
             file = new File(filePath);
             file.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(file);
             outputStream.write(bytes);
             outputStream.close();
-        }catch(FileNotFoundException ef){
-            throw new FileNotFoundException("不能完整读取文件"+file.getName());
+        } catch (FileNotFoundException ef) {
+            throw new FileNotFoundException("不能完整读取文件" + file.getName());
         }
         return file;
     }
@@ -199,7 +207,7 @@ public class TestSecurity {
     public static void main(String args[]) throws Exception {
         //String encrypt = new TestSecurity().encryptCipher(setDefaultKey);
         //String decrypt = new TestSecurity().decryptCipher(encrypt);
-        new TestSecurity().encryptFile("e:/10分钟音乐.mp4","e:/encrypt.ff");
-        new TestSecurity().decryptFile("e:/encrypt.ff","e:/decrypt.mp4");
+        new TestSecurity().encryptFile("e:/10分钟音乐.mp4", "e:/encrypt.ff");
+        new TestSecurity().decryptFile("e:/encrypt.ff", "e:/decrypt.mp4");
     }
 }
