@@ -8,7 +8,7 @@ import java.io.*;
 public class TestCopyFile {
     public static void main(String args[]) {
 
-        //copyFile("e:/data.txt","f:/data.txt");
+        copyFile("e:/data.txt","f:/data.txt");
         copyFolder("E:\\简历范文", "f:\\简历范文");
     }
 
