@@ -12,7 +12,6 @@ public class TestByteArrayIo {
     }
     public static void test()throws Exception{
         ByteArrayOutputStream bOutput = new ByteArrayOutputStream(60);
-
         while( bOutput.size()!= 30 ) {
             // 获取用户输入值
             bOutput.write(System.in.read());
