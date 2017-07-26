@@ -7,8 +7,8 @@ import java.io.*;
  **/
 public class TestBufferedIo {
     public static void main(String args[])throws Exception{
-        //test();
-        //test1();
+        test();
+        test1();
         test3();
     }
     public static void test()throws Exception{
