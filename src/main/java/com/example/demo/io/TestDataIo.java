@@ -15,7 +15,7 @@ public class TestDataIo {
         FileOutputStream outputStream = new FileOutputStream(file);
         byte[] b = "1234587".getBytes();
         DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-        //dataOutputStream.write(b);
+        dataOutputStream.write(b);
         //dataOutputStream.writeBoolean(true);
         //dataOutputStream.writeChar('d');
         dataOutputStream.writeUTF("肯建电视");
