@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 
-
 /**
  * Created by cuizhixiang on 2017/8/7.
  **/
