@@ -11,10 +11,8 @@ import java.util.zip.ZipOutputStream;
  **/
 public class TestZip {
     public static void main(String agrs[]) throws Exception {
-        //zipFile("e:/data.txt","e:/zip");
-        //unZip("e:/zip/data.zip","e:/zip");
-        zipFolder("e:/test/data", "e:/test");
-        unZipFolder("e:/test/data.zip", "e:/test/unZip");
+        new TestZip().zipFolder("e:/mywork", "e:/work.zip");
+        new TestZip().unZipFolder("e:/work.zip","e:/zip");
     }
 
     /**
@@ -23,10 +21,9 @@ public class TestZip {
      * @param filePath   压缩文件
      * @param folderPath 压缩后文件存放目录
      */
-    public static void zipFile(String filePath, String folderPath) throws Exception {
+    public void zipFile(String filePath, String folderPath) throws Exception {
         File file = new File(filePath);
-        String name = file.getName().substring(0, file.getName().lastIndexOf("."));
-        FileOutputStream outputStream = new FileOutputStream(folderPath + File.separator + name + ".zip");
+        FileOutputStream outputStream = new FileOutputStream(folderPath);
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
         ZipOutputStream zipOutputStream = new ZipOutputStream(bufferedOutputStream);
         FileInputStream inputStream = new FileInputStream(file);
@@ -50,16 +47,16 @@ public class TestZip {
      * @param zipPath  压缩文件路径
      * @param destPath 解压缩后存放目录
      */
-    public static void unZip(String zipPath, String destPath) throws Exception {
+    public void unZip(String zipPath, String destPath) throws Exception {
         FileInputStream inputStream = new FileInputStream(zipPath);
         ZipInputStream zipInputStream = new ZipInputStream(inputStream);
         ZipEntry zipEntry;
         while ((zipEntry = zipInputStream.getNextEntry()) != null) {
             if (zipEntry.isDirectory()) {
-                File file = new File(destPath + File.separator + zipEntry.getName());
+                File file = new File(destPath);
                 file.mkdirs();
             } else {
-                File file = new File(destPath + File.separator + zipEntry.getName());
+                File file = new File(destPath+File.separator+zipEntry.getName());
                 FileOutputStream outputStream = new FileOutputStream(file);
                 int tmp = 0;
                 while ((tmp = zipInputStream.read()) != -1) {
@@ -74,24 +71,20 @@ public class TestZip {
     }
 
     /**
-     * 压缩目录
+     * 压缩
      *
-     * @param filePath 需要压缩的目录
+     * @param filePath 需要压缩的
      * @param zipPath  压缩后存贮目录
      */
-    public static void zipFolder(String filePath, String zipPath) throws Exception {
+    public void zipFolder(String filePath, String zipPath) throws Exception {
         File file = new File(filePath);
-        File folder = new File(zipPath);
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
-        FileOutputStream outputStream = new FileOutputStream(folder + File.separator + file.getName() + ".zip");
+        FileOutputStream outputStream = new FileOutputStream(zipPath);
         ZipOutputStream zipOutputStream = new ZipOutputStream(outputStream);
-        zipFolder(zipOutputStream, file, "");
+        zipFolder(zipOutputStream, file, file.getName());
         zipOutputStream.close();
     }
 
-    public static void zipFolder(ZipOutputStream zipOutputStream, File file, String base) throws Exception {
+    public void zipFolder(ZipOutputStream zipOutputStream, File file, String base) throws Exception {
         if (file.isDirectory()) {
             File[] files = file.listFiles();
             zipOutputStream.putNextEntry(new ZipEntry(base + "/"));
@@ -111,12 +104,12 @@ public class TestZip {
     }
 
     /**
-     * 目录解压缩
+     * 解压缩
      *
      * @param zipName 压缩文件
      * @param folder  解压后存放路径
      */
-    public static void unZipFolder(String zipName, String folder) throws Exception {
+    public void unZipFolder(String zipName, String folder) throws Exception {
         File file = new File(zipName);
         File f = new File(folder);
         if (!f.exists()) {
