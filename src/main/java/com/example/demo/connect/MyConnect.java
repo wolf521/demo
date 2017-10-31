@@ -1,7 +1,7 @@
 package com.example.demo.connect;
 
 /**
- * Created by Administrator on 2017/10/30.
+ * Created by lianxifangshi on 2017/10/30.
  */
 public class MyConnect {
     public static void main(String agrs[]){
