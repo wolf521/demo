@@ -24,8 +24,12 @@ public class AnnotionService {
      */
     private static void analysisClass(){
         Class classes = AnnotionManager.class;
-        Annotation annotation = classes.getAnnotation(ClassInfo.class);
-        System.out.println(annotation);
+        // 判断注解是否存在
+        boolean boo = classes.isAnnotationPersent(ClassInfo.class);
+        if (boo){
+            Annotation annotation = classes.getAnnotation(ClassInfo.class);
+            System.out.println(annotation);
+        }
     }
 
     /**
