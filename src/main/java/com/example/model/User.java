@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by cuizhixiang on 2017/6/22.
+ * fist
  **/
 public class User implements Comparable<User>, Serializable {
 
